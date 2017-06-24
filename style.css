@@ -1,0 +1,29 @@
+/**
+ * Theme Name: Phantom - HTML5UP
+ * Author Name: Fatima Aurelia
+ * Author URI: https://github.com/faurelia
+ * Description: A WordPress version of HTML5UP Phantom template
+ * Version: 1.0
+ * Tags: blog, featured-images, light, one-column
+ */
+
+/* Created Jun 25, 2017 by fatima aurelia */
+
+/* remove later */
+.footer-textarea {
+    overflow-x: hidden;
+    overflow-y: auto;
+    resize: none;
+    height: 59px;
+    max-height: 10em;
+}
+
+/* responsive image */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.image.main img {
+    height: auto;
+}
