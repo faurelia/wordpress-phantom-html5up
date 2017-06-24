@@ -20,29 +20,33 @@ I encourage using this for the footer contact form
 - Install Contact Form 7 Plugin
 - Create a new form and add the ff. contact template
 ```html
-<div class="field half first">
-  [text* fullname id:fullname placeholder "Full Name"]
-</div>
-<div class="field half">
-  [email* email id:email placeholder "Email"]
-</div>
-<div class="field">
-  <div class="textarea-wrapper">
-    [textarea* message id:message class:footer-textarea placeholder "Message"]
+  <div class="field half first">
+    [text* fullname id:fullname placeholder "Full Name"]
   </div>
-</div>
-<ul class="actions">
-  <li>[submit class:special "Send Message"]</li>
-</ul>
+  <div class="field half">
+    [email* email id:email placeholder "Email"]
+  </div>
+  <div class="field">
+    <div class="textarea-wrapper">
+      [textarea* message id:message class:footer-textarea placeholder "Message"]
+    </div>
+  </div>
+  <ul class="actions">
+    <li>[submit class:special "Send Message"]</li>
+  </ul>
 ```
 - Copy the SHORTCODE then go to Appearance > Widgets
-- Add Text Widget and paste the Contact Form 7 shortcode
-- Save changes
+- Add Text Widget to the Footer Area
+- On the textfield, paste the shorcode
+- Save changes then preview.
 
 ## Screenshot
 ![Phantom][screenshot]
 
 [screenshot]: https://github.com/faurelia/wordpress-phantom-html5up/blob/master/screenshot.png "Phantom for WordPress"
+
+## Demo
+Check demo at [Knock2U](https://knock2u.ml/)
 
 ## Credits
 This theme was created by [HTML5 Up](https://html5up.net/phantom) and adapted for WordPress by [Fatima Aurelia](https://github.com/faurelia).
