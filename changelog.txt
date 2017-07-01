@@ -1,0 +1,11 @@
+1.1 Updates
+- Added default values on fresh installation of the theme
+	1. Created default Contact Form, Social Links, Menus
+	2. Improved Theme Customizer
+- String localization and i18n
+- Post image alignment
+- Added widget areas and built-in widgets
+- Comment Support
+
+1.0 Developed Phantom Theme
+- Created WordPress version of Phantom Template by HTML5UP

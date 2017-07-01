@@ -3,13 +3,13 @@
  * Author Name: Fatima Aurelia
  * Author URI: https://github.com/faurelia
  * Description: A WordPress version of HTML5UP Phantom template
- * Version: 1.0
+ * Version: 1.1
  * Tags: blog, featured-images, light, one-column
+ * Text Domain: html5phantom
  */
 
 /* Created Jun 25, 2017 by fatima aurelia */
 
-/* remove later */
 .footer-textarea {
     overflow-x: hidden;
     overflow-y: auto;
@@ -18,12 +18,125 @@
     max-height: 10em;
 }
 
-/* responsive image */
+/* ELEMENTS */
 img {
     max-width: 100%;
     height: auto;
 }
 
+input[type="url"] {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    border-bottom: solid 1px #c9c9c9;
+    color: inherit;
+    display: block;
+    outline: 0;
+    padding: 0;
+    text-decoration: none;
+    width: 100%;
+}
+
+input[type="url"]:invalid {
+    box-shadow: none;
+}
+
+input[type="url"]:focus {
+    border-bottom-color: #f2849e;
+    box-shadow: inset 0 -1px 0 0 #f2849e;
+}
+
+input[type="url"] {
+    height: 3em;
+}
+
 .image.main img {
     height: auto;
+}
+
+
+/* ALIGNMENT */
+.alignright { float: right; }
+.alignleft { float: left; }
+.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+
+img.alignright { float: right; margin: 0 0 1em 1em; }
+img.alignleft { float: left; margin: 0 1em 1em 0; }
+img.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+
+/* SINGLE POST */
+.post-navigation h2.screen-reader-text {
+    display: none;
+}
+
+.nav-previous {
+    float: left;
+}
+
+.nav-next {
+    float: right;
+}
+
+/* COMMENTS */
+#comments {
+    margin-bottom: 1em;
+}
+
+.nav-comments {
+    padding: 10px 0 30px 0;
+}
+
+.comment-respond {
+    margin-top: 20px;
+}
+
+.commentlist, .commentlist ul.children {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.commentlist li {
+    margin: 10px 0;
+    padding: 0;
+}
+
+.commentlist article {
+    border: 3px solid rgba(236, 240, 241, 0.5);
+    padding: 10px;
+}
+
+.commentlist ul.children li {
+    padding-left: 30px;
+}
+
+.commentlist li p, .commentlist ul.children li p {
+    margin: 0 0 1em 0;
+}
+
+.comment-author img.avatar {
+    float: left;
+    margin: 8px 10px 0 0;
+    width: 40px;
+}
+
+@media screen and (max-width: 480px) {
+    .post .alignright, .post .alignleft,
+    .post img.alignright, .post img.alignleft {
+        float: none;
+        max-width: 80%;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .nav-next, .nav-previous {
+        max-width: 150px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }

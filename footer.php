@@ -2,77 +2,119 @@
 <!-- Footer -->
 <footer id="footer">
     <div class="inner">
-
         <section>
-            <h2>Get in touch</h2>
-            <?php dynamic_sidebar( 'widget-contact' ); ?>
+        <?php if ( is_active_sidebar('widget-footer-section-1') ): ?>
+            <?php dynamic_sidebar( 'widget-footer-section-1' ); ?>
+        <?php else: ?>
+            <div class="widget">
+                <h2><?php _e('Get in touch', 'html5phantom') ?></h2>
+                <form method="post" action="#">
+                    <div class="field half first">
+                        <input type="text" name="name" id="name" placeholder="<?php _e('Name', 'html5phantom') ?>">
+                    </div>
+                    <div class="field half">
+                        <input type="email" name="email" id="email" placeholder="<?php _e('Email Address', 'html5phantom') ?>">
+                    </div>
+                    <div class="field">
+                        <div class="textarea-wrapper"><textarea name="message" id="message" placeholder="<?php _e('Message', 'html5phantom') ?>" rows="1" class="footer-textarea"></textarea></div>
+                    </div>
+                    <ul class="actions">
+                        <li><input type="submit" value="<?php _e('Clear', 'html5phantom') ?>"></li>
+                        <li><input type="submit" value="<?php _e('Send Message', 'html5phantom') ?>" class="special"></li>
+                    </ul>
+                </form>
+            </div>
+        <?php endif; ?>
         </section>
         <section>
-            <h2>Follow</h2>
-            <ul class="icons">
-                <?php if ( get_theme_mod( 'sm_twitter' )): ?>
-                <li><a href="<?php echo get_theme_mod( 'sm_twitter' ); ?>" target="_blank" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
-                <?php endif; ?>
+        <?php if ( is_active_sidebar('widget-footer-section-2') ): ?>
+            <?php dynamic_sidebar( 'widget-footer-section-2' ); ?>
+        <?php else: ?>
+            <div class="widget">
+                <h2><?php _e('Follow', 'html5phantom') ?></h2>
+                <ul class="icons">
+                    <?php
+                    $social_link_id = get_theme_mod('phantom_social_link_id');
 
-                <?php if ( get_theme_mod( 'sm_facebook' )): ?>
-                <li><a href="<?php echo get_theme_mod( 'sm_facebook' ); ?>" target="_blank" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
-                <?php endif; ?>
+                    // set default links
+                    if (! array_filter($social_link_id)) {
+                        $social_link_id = array(
+                            'twitter'   => 'https://twitter.com',
+                            'facebook'  => 'https://facebook.com',
+                            'instagram' => 'https://instagram.com',
+                            'google'    => 'https://plug.google.com',
+                            'linkedin'    => 'https://linkedin.com',
+                            'phone'     => '+1234567890',
+                            'email'     => 'example@domain.com',
+                            'rss'       => '#',
+                        );
+                    }
 
-                <?php if ( get_theme_mod( 'sm_youtube' )): ?>
-                    <li><a href="<?php echo get_theme_mod( 'sm_youtube' ); ?>" target="_blank" class="icon style2 fa-youtube-play"><span class="label">Youtube</span></a></li>
-                <?php endif; ?>
+                    ?>
 
-                <?php if ( get_theme_mod( 'sm_instagram' )): ?>
-                <li><a href="<?php echo get_theme_mod( 'sm_instagram' ); ?>" target="_blank" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
-                <?php endif; ?>
+                    <?php if ( $social_link_id['twitter'] ): ?>
+                    <li><a href="<?php echo $social_link_id['twitter'] ?>" target="_blank" class="icon style2 fa-twitter"><span class="label"><?php _e('Twitter','html5phantom') ?></span></a></li>
+                    <?php endif; ?>
 
-                <?php if ( get_theme_mod( 'sm_google' )): ?>
-                    <li><a href="<?php echo get_theme_mod( 'sm_google' ); ?>" target="_blank" class="icon style2 fa-google-plus"><span class="label">Instagram</span></a></li>
-                <?php endif; ?>
+                    <?php if ( $social_link_id['facebook'] ): ?>
+                    <li><a href="<?php echo $social_link_id['facebook'] ?>" target="_blank" class="icon style2 fa-facebook"><span class="label"><?php _e('Facebook','html5phantom') ?></span></a></li>
+                    <?php endif; ?>
 
-                <?php if ( get_theme_mod( 'sm_dribbble' )): ?>
-                <li><a href="<?php echo get_theme_mod( 'sm_dribbble' ); ?>" target="_blank" class="icon style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
-                <?php endif; ?>
+                    <?php if ( $social_link_id['youtube'] ): ?>
+                        <li><a href="<?php echo $social_link_id['youtube'] ?>" target="_blank" class="icon style2 fa-youtube-play"><span class="label"><?php _e('YouTube','html5phantom') ?></span></a></li>
+                    <?php endif; ?>
 
-                <?php if ( get_theme_mod( 'sm_github' )): ?>
-                <li><a href="<?php echo get_theme_mod( 'sm_github' ); ?>" target="_blank" class="icon style2 fa-github-alt"><span class="label">GitHub</span></a></li>
-                <?php endif; ?>
+                    <?php if ( $social_link_id['instagram'] ): ?>
+                    <li><a href="<?php echo $social_link_id['instagram'] ?>" target="_blank" class="icon style2 fa-instagram"><span class="label"><?php _e('Instagram','html5phantom') ?></span></a></li>
+                    <?php endif; ?>
 
-                <?php if ( get_theme_mod( 'sm_500px' )): ?>
-                <li><a href="<?php echo get_theme_mod( 'sm_500px' ); ?>" target="_blank" class="icon style2 fa-500px"><span class="label">500px</span></a></li>
-                <?php endif; ?>
+                    <?php if ( $social_link_id['google'] ): ?>
+                        <li><a href="<?php echo $social_link_id['google'] ?>" target="_blank" class="icon style2 fa-google-plus"><span class="label"><?php _e('Google Plus','html5phantom') ?></span></a></li>
+                    <?php endif; ?>
 
-                <?php if ( get_theme_mod( 'sm_behance' )): ?>
-                    <li><a href="<?php echo get_theme_mod( 'sm_behance' ); ?>" target="_blank" class="icon style2 fa-behance"><span class="label">Behance</span></a></li>
-                <?php endif; ?>
+                    <?php if ( $social_link_id['dribbble'] ): ?>
+                    <li><a href="<?php echo $social_link_id['dribbble'] ?>" target="_blank" class="icon style2 fa-dribbble"><span class="label"><?php _e('Dribbble','html5phantom') ?></span></a></li>
+                    <?php endif; ?>
 
-                <?php if ( get_theme_mod( 'sm_linked_in' )): ?>
-                    <li><a href="<?php echo get_theme_mod( 'sm_linked_in' ); ?>" target="_blank" class="icon style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
-                <?php endif; ?>
+                    <?php if ( $social_link_id['github'] ): ?>
+                    <li><a href="<?php echo $social_link_id['github'] ?>" target="_blank" class="icon style2 fa-github-alt"><span class="label"><?php _e('GitHub','html5phantom') ?></span></a></li>
+                    <?php endif; ?>
 
-                <?php if ( get_theme_mod( 'sm_mobile' )): ?>
-                <li><a href="tel:<?php echo str_replace(' ','', get_theme_mod( 'sm_mobile' )); ?>" target="_blank" class="icon style2 fa-phone"><span class="label">Phone</span></a></li>
-                <?php endif; ?>
+                    <?php if ( $social_link_id['500px'] ): ?>
+                    <li><a href="<?php echo $social_link_id['500px'] ?>" target="_blank" class="icon style2 fa-500px"><span class="label"><?php _e('500px','html5phantom') ?></span></a></li>
+                    <?php endif; ?>
 
-                <?php if ( get_theme_mod( 'sm_email' )): ?>
-                <li><a href="mailto:<?php echo get_theme_mod( 'sm_email' ); ?>" target="_blank" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
-                <?php endif; ?>
+                    <?php if ( $social_link_id['behance'] ): ?>
+                        <li><a href="<?php echo $social_link_id['behance'] ?>" target="_blank" class="icon style2 fa-behance"><span class="label"><?php _e('Behance','html5phantom') ?></span></a></li>
+                    <?php endif; ?>
 
-                <?php if ( get_theme_mod( 'sm_rss_feed' )): ?>
-                    <li><a href="<?php echo get_theme_mod( 'sm_rss_feed' ); ?>" target="_blank" class="icon style2 fa-rss"><span class="label">RSS Feed</span></a></li>
-                <?php endif; ?>
-            </ul>
+                    <?php if ( $social_link_id['linkedin'] ): ?>
+                        <li><a href="<?php echo $social_link_id['linkedin'] ?>" target="_blank" class="icon style2 fa-linkedin"><span class="label"><?php _e('LinkedIn','html5phantom') ?></span></a></li>
+                    <?php endif; ?>
+
+                    <?php if ( $social_link_id['phone'] ): ?>
+                    <li><a href="tel:<?php echo $social_link_id['phone'] ?>" target="_blank" class="icon style2 fa-phone"><span class="label"><?php _e('Phone','html5phantom') ?></span></a></li>
+                    <?php endif; ?>
+
+                    <?php if ( $social_link_id['email'] ): ?>
+                    <li><a href="mailto:<?php echo $social_link_id['email'] ?>" target="_blank" class="icon style2 fa-envelope-o"><span class="label"><?php _e('Email','html5phantom') ?></span></a></li>
+                    <?php endif; ?>
+
+                    <?php if ( $social_link_id['rss'] ): ?>
+                        <li><a href="<?php echo $social_link_id['rss'] ?>" target="_blank" class="icon style2 fa-rss"><span class="label"><?php _e('RSS Feed','html5phantom') ?></span></a></li>
+                    <?php endif; ?>
+                </ul>
+            </div>
+        <?php endif; ?>
         </section>
 
         <ul class="copyright">
-        <?php if ( get_theme_mod( 'setting_copyright' ) ): ?>
-            <li><?php echo sprintf(get_theme_mod( 'setting_copyright' ), get_bloginfo('name')); ?></li>
-        <?php else: ?>
-            <li><?php echo sprintf("&copy; %s. All rights reserved.", get_bloginfo('name')); ?></li>
-        <?php endif; ?>
-
-            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-            <li>Adapted for Wordpress by <a href="https://knock2u.ml">Knock2U</a></li>
+            <?php if ( get_theme_mod( 'setting_copyright' ) ): ?>
+            <li><?php printf(__(get_theme_mod( 'setting_copyright' ), 'html5phantom'), get_bloginfo('name')) ?></li>
+            <?php else: ?>
+            <li><?php printf(__("&copy; %s. All rights reserved.", 'html5phantom'), get_bloginfo('name')) ?></li>
+            <?php endif; ?>
+            <li><?php printf(__('Design by <a href="%1$s" target="_blank">HTML5 UP</a> &nbsp; and developed for Wordpress by <a href="%2$s" target="_blank">Knock2U</a>', 'html5phantom'), 'https://html5up.net', 'https://knock2u.ml' ); ?></li>
         </ul>
     </div>
 </footer>
