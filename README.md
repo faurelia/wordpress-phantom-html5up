@@ -24,7 +24,7 @@ I encourage using this for the footer contact form
     [text* fullname id:fullname placeholder "Full Name"]
   </div>
   <div class="field half">
-    [email* email id:email placeholder "Email"]
+    [email* your-email id:email placeholder "Email"]
   </div>
   <div class="field">
     <div class="textarea-wrapper">
