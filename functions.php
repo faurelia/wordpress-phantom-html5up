@@ -59,15 +59,15 @@ function theme_phantom_enqueue_style() {
     wp_enqueue_style( 'main', get_template_directory_uri() . '/assets/css/main.css' );
     wp_enqueue_style( 'theme', get_stylesheet_uri() );
 
-    wp_enqueue_script( 'skel', get_template_directory_uri() . '/assets/js/skel.min.js', array('jquery'), '3.0.1', true );
+    wp_enqueue_script( 'browser', get_template_directory_uri() . '/assets/js/browser.min.js', array('jquery'), null, true );
+    wp_enqueue_script( 'breakpoints', get_template_directory_uri() . '/assets/js/breakpoints.min.js', array('jquery'), null, true );
     wp_enqueue_script( 'util', get_template_directory_uri() . '/assets/js/util.js', array('jquery'), null, true );
-    wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), null, true );
-    wp_enqueue_script( 'theme', get_template_directory_uri() . '/assets/js/theme.js', array('jquery'), null, true );
+    wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js', array('jquery', 'breakpoints'), null, true );
 }
 add_action( 'wp_enqueue_scripts', 'theme_phantom_enqueue_style' );
 
 function pre_comment_form () {
-    echo '<div class="row uniform">';
+    echo '<div class="row gtr-uniform">';
 }
 
 add_action('comment_form_top', 'pre_comment_form');

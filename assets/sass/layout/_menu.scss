@@ -120,7 +120,7 @@
 			}
 		}
 
-		@include breakpoint(small) {
+		@include breakpoint('<=small') {
 			@include vendor('transform', 'translateX(#{_size(menu) * 0.75})');
 			width: (_size(menu) * 0.75);
 

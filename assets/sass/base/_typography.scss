@@ -13,11 +13,11 @@
 		font-weight: _font(weight);
 		line-height: 1.75;
 
-		@include breakpoint(xlarge) {
+		@include breakpoint('<=xlarge') {
 			font-size: 14pt;
 		}
 
-		@include breakpoint(large) {
+		@include breakpoint('<=large') {
 			font-size: 12pt;
 		}
 	}
@@ -62,12 +62,12 @@
 			color: inherit;
 		}
 
-		@include breakpoint(small) {
+		@include breakpoint('<=small') {
 			font-size: 2em;
 			margin: 0 0 (_size(element-margin) * 0.5) 0;
 		}
 
-		@include breakpoint(xxsmall) {
+		@include breakpoint('<=xxsmall') {
 			font-size: 1.75em;
 		}
 	}
@@ -105,7 +105,7 @@
 		font-size: 0.8em;
 	}
 
-	@include breakpoint(medium) {
+	@include breakpoint('<=medium') {
 		h1, h2, h3, h4, h5, h6 {
 			br {
 				display: none;
@@ -113,7 +113,7 @@
 		}
 	}
 
-	@include breakpoint(small) {
+	@include breakpoint('<=small') {
 		h2 {
 			font-size: 1em;
 		}

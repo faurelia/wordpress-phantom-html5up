@@ -13,7 +13,7 @@
                     <?php if ( has_post_thumbnail() ): ?>
                         <?php the_post_thumbnail('homepage-thumb') ?>
                     <?php else: ?>
-                        <img src="http://via.placeholder.com/500/fff/fff" />
+                        <img src="//picsum.photos/500" />
                     <?php endif; ?>
                 </span>
                 <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php printf(__('Permalink to %s', 'html5phantom'), get_the_title()) ?>">

@@ -16,7 +16,7 @@
 				margin: 0 auto;
 				padding: 0 $gutter;
 
-				@include breakpoint(small) {
+				@include breakpoint('<=small') {
 					$gutter: _size(gutter) * 0.5;
 
 					padding: 0 $gutter;

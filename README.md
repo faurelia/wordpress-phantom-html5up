@@ -20,19 +20,21 @@ I encourage using this for the footer contact form
 - Install Contact Form 7 Plugin
 - Create a new form and add the ff. contact template
 ```html
-  <div class="field half first">
-    [text* fullname id:fullname placeholder "Full Name"]
-  </div>
-  <div class="field half">
-    [email* your-email id:email placeholder "Email"]
-  </div>
-  <div class="field">
-    <div class="textarea-wrapper">
-      [textarea* message id:message class:footer-textarea placeholder "Message"]
-    </div>
+  <div class="fields">
+      <div class="field half">
+        [text* fullname id:fullname placeholder "Full Name"]
+      </div>
+      <div class="field half">
+        [email* your-email id:email placeholder "Email"]
+      </div>
+      <div class="field">
+        <div class="textarea-wrapper">
+          [textarea* message id:message class:footer-textarea placeholder "Message"]
+        </div>
+      </div>
   </div>
   <ul class="actions">
-    <li>[submit class:special "Send Message"]</li>
+    <li>[submit class:primary "Send Message"]</li>
   </ul>
 ```
 - Copy the SHORTCODE then go to Appearance > Widgets

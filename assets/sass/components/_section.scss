@@ -17,7 +17,7 @@
 			margin-top: _size(element-margin) * -0.5;
 		}
 
-		@include breakpoint(small) {
+		@include breakpoint('<=small') {
 			p {
 				margin-top: 0;
 			}

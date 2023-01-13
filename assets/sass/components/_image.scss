@@ -57,7 +57,7 @@
 				width: 100%;
 			}
 
-			@include breakpoint(small) {
+			@include breakpoint('<=small') {
 				margin: 0 0 _size(element-margin) 0;
 			}
 		}

@@ -48,30 +48,41 @@ $commenter = wp_get_current_commenter();
 $req = get_option( 'require_name_email' );
 $aria_req = ( $req ? " aria-required='true'" : '' );
 
+$consent = empty( $commenter['comment_author_email'] ) ? '' : ' checked';
+
+$cookies = sprintf(
+    '<div class="comment-form-cookies-consent col-12">%s %s</div>',
+    sprintf(
+        '<input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"%s />',
+        $consent
+    ),
+    sprintf(
+        '<label for="wp-comment-cookies-consent">%s</label>',
+        __( 'Save my name, email, and website in this browser for the next time I comment.' )
+    )
+);
+
 $args = array(
     'fields' => array(
-        'author' => '<div class="4u 12u$(small)">
-            <input type="text" id="author" name="author" value="'.esc_attr( $commenter['comment_author'] ).'" ' . $aria_req . '/>
-            <label for="author">' . __( 'Name', 'html5phantom' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label>
+        'author' => '<div class="col-4 col-12-xsmall">
+            <input type="text" id="author" name="author" value="'.esc_attr( $commenter['comment_author'] ).'" placeholder="'.__( 'Name', 'html5phantom' ).'" ' . $aria_req . '/>
         </div>',
-        'email' => '<div class="4u 12u$(small)">
-            <input type="email" id="email" name="email" value="'.esc_attr( $commenter['comment_author_email'] ).'" ' . $aria_req . '/>
-            <label for="email">' . __( 'Email', 'html5phantom' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label>
+        'email' => '<div class="col-4 col-12-xsmall">
+            <input type="email" id="email" name="email" value="'.esc_attr( $commenter['comment_author_email'] ).'" placeholder="'.__( 'Email', 'html5phantom' ).'" ' . $aria_req . '/>
         </div>',
-        'url' => '<div class="4u 12u$(small)">
-            <input type="url" id="url" name="url" value="'.esc_attr( $commenter['comment_author_url'] ).'">
-            <label for="url">' . __( 'Website', 'html5phantom' ) . '</label>
+        'url' => '<div class="col-4 col-12-xsmall">
+            <input type="url" id="url" name="url" value="'.esc_attr( $commenter['comment_author_url'] ).'" placeholder="'. __( 'Website', 'html5phantom' ).'" />
         </div>',
+        'cookies' => $cookies
     ),
-    'comment_field' => '<div class="12u$">
+    'comment_field' => '<div class="col-12">
         <div class="textarea-wrapper">
-            <textarea name="comment" id="comment" rows="1" aria-required="true" style="overflow: hidden; resize: none; height: 59px;"></textarea>
-            <label for="comment">' . _x( 'Comment', 'noun', 'html5phantom' ) . '</label>
+            <textarea name="comment" id="comment" rows="1" aria-required="true" style="overflow: hidden; resize: none; height: 59px;" placeholder="'._x( 'Comment', 'noun', 'html5phantom' ) .'"></textarea>
         </div>
     </div>',
     'label_submit' => __( 'Post Comment', 'html5phantom' ),
-    'class_submit' => 'special',
-    'submit_field' => '<div class="12u$">%2$s<ul class="actions"><li>%1$s</li></ul></div>',
+    'class_submit' => 'primary',
+    'submit_field' => '<div class="col-12">%2$s<ul class="actions"><li>%1$s</li></ul></div>',
     'submit_button' => '<input type="submit" name="%1$s" id="%2$s" value="%4$s" class="%3$s">',
 );
 
